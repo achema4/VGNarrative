@@ -1,0 +1,30 @@
+{
+  "name": "vgnarrative",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "pug:build": "pug --pretty src/pug/index.pug --out .",
+    "predev": "npm run pug:build",
+    "dev": "concurrently -k \"pug --watch src/pug/index.pug --out .\" \"vite --host 0.0.0.0\"",
+    "build": "npm run pug:build && tsc --noEmit && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "android:add": "cap add android",
+    "android:sync": "npm run build && cap sync android",
+    "android": "npm run android:sync && cap open android"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.3",
+    "concurrently": "^10.0.6",
+    "pug-cli": "^1.0.0-alpha6",
+    "sass": "^1.105.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4",
+    "vite-plugin-pwa": "^2.0.0"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/core": "^8.5.3",
+    "@capacitor/filesystem": "^8.1.4"
+  }
+}

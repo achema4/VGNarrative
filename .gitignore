@@ -1,0 +1,34 @@
+﻿
+# Dependencias
+node_modules/
+
+# Compilación web
+dist/
+
+# Archivos generados por Pug (si index.html se genera automáticamente)
+index.html
+
+# Android: conservar el proyecto, ignorar solo los archivos locales y generados
+android/.gradle/
+android/**/build/
+android/local.properties
+android/.externalNativeBuild/
+android/.cxx/
+
+# Paquetes Android generados
+*.apk
+*.aab
+
+# Secretos y configuración local
+.env
+.env.*
+!.env.example
+
+# Claves de firma privadas
+*.jks
+*.keystore
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+Desktop.ini

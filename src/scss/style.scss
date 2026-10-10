@@ -1,0 +1,259 @@
+﻿/* ========================================
+   VGNarrative - Estilos principales
+   Diseño móvil vertical
+   ======================================== */
+
+$color-principal: #3157a4;
+$color-principal-oscuro: #24427e;
+$color-fondo: #f3f5f9;
+$color-superficie: #ffffff;
+$color-texto: #202938;
+$color-secundario: #667085;
+$color-borde: #d8deea;
+$color-deshabilitado: #aab3c3;
+$radio: 12px;
+$sombra: 0 3px 12px rgba(30, 50, 90, 0.07);
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: $color-fondo;
+  color: $color-texto;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 9px;
+  background: $color-principal;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background-color 0.15s ease;
+}
+
+button:active {
+  background: $color-principal-oscuro;
+}
+
+button:disabled {
+  background: #e2e6ee;
+  color: $color-deshabilitado;
+  cursor: not-allowed;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(49, 87, 164, 0.25);
+  outline-offset: 2px;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: 640px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 16px;
+  padding-bottom: max(24px, env(safe-area-inset-bottom));
+}
+
+.cabecera {
+  margin: -16px -16px 20px;
+  padding: 24px 20px 20px;
+  background: $color-principal;
+  color: white;
+  box-shadow: $sombra;
+
+  h1 {
+    margin: 0;
+    font-size: 26px;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+  }
+
+  p {
+    margin: 6px 0 0;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+  }
+}
+
+.historia,
+.parrafo,
+.bifurcaciones {
+  margin-bottom: 16px;
+  padding: 16px;
+  border: 1px solid $color-borde;
+  border-radius: $radio;
+  background: $color-superficie;
+  box-shadow: $sombra;
+}
+
+label {
+  display: block;
+  margin: 12px 0 6px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.historia label:first-child,
+.parrafo > label:first-of-type {
+  margin-top: 0;
+}
+
+input,
+textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid $color-borde;
+  border-radius: 9px;
+  background: #fff;
+  color: $color-texto;
+  font-size: 16px;
+}
+
+input {
+  min-height: 46px;
+}
+
+textarea {
+  min-height: 180px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #98a2b3;
+}
+
+.navegacion {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+
+  button {
+    padding: 9px 8px;
+    font-size: 13px;
+  }
+
+  button:last-child {
+    justify-self: stretch;
+  }
+
+  span {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+}
+
+#contador-palabras {
+  margin: 8px 0 0;
+  color: $color-secundario;
+  font-size: 13px;
+  text-align: right;
+}
+
+.bifurcaciones {
+  h2 {
+    margin: 0 0 8px;
+    font-size: 19px;
+  }
+
+  p {
+    color: $color-secundario;
+    font-size: 14px;
+  }
+
+  #anadir-bifurcacion-btn {
+    width: 100%;
+    margin-top: 8px;
+    border: 1px dashed $color-principal;
+    background: #f0f4ff;
+    color: $color-principal;
+  }
+}
+
+#lista-bifurcaciones {
+  display: grid;
+  gap: 10px;
+}
+
+.botonera {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 20px;
+
+  button {
+    padding: 10px 6px;
+    font-size: 13px;
+  }
+}
+
+#resultado {
+  min-height: 24px;
+  margin: 12px 2px 0;
+  color: $color-secundario;
+  font-size: 14px;
+}
+
+@media (min-width: 600px) {
+  .contenedor {
+    padding: 24px;
+  }
+
+  .cabecera {
+    margin: -24px -24px 24px;
+    padding: 28px 24px;
+  }
+
+  .historia,
+  .parrafo,
+  .bifurcaciones {
+    padding: 22px;
+  }
+
+  .cabecera h1 {
+    font-size: 30px;
+  }
+
+  .botonera button {
+    font-size: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}

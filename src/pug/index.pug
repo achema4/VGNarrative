@@ -1,0 +1,49 @@
+﻿doctype html
+html(lang="es")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="theme-color", content="#3157a4")
+    title VGNarrative
+  body
+    main.contenedor
+      header.cabecera
+        h1 VGNarrative
+        p Editor de historias narrativas
+
+      section.historia
+        label(for="titulo-historia") Título de la historia
+        input#titulo-historia(type="text", placeholder="Escribe el título de tu historia")
+
+
+      section.parrafo
+        nav.navegacion(aria-label="Navegación entre párrafos")
+          button#anterior-btn(type="button", disabled) ← Anterior
+          span#numero-parrafo Párrafo 1
+          button#siguiente-btn(type="button", disabled) Siguiente →
+
+        button#crear-parrafo-btn(type="button") + Nuevo párrafo
+
+        label(for="titulo-parrafo") Título del párrafo
+        input#titulo-parrafo(type="text", placeholder="Título del párrafo")
+
+
+        label(for="texto-parrafo") Texto narrativo
+        textarea#texto-parrafo(rows="8", maxlength="10000", placeholder="Escribe aquí tu historia...")
+
+        p#contador-palabras Contador de palabras: 0 / 1000
+
+      section.bifurcaciones
+        h2 Bifurcaciones
+        p#sin-bifurcaciones Todavía no hay bifurcaciones.
+        div#lista-bifurcaciones
+        button#anadir-bifurcacion-btn(type="button") + Añadir bifurcación
+
+      footer.botonera
+        button#nuevo-btn(type="button") Nueva historia
+        button#cargar-btn(type="button") Cargar
+        button#guardar-btn(type="button") Guardar
+
+      p#resultado(aria-live="polite")
+
+    script(type="module", src="/src/ts/main.ts")
